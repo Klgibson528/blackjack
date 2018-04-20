@@ -1,0 +1,55 @@
+#table {
+  padding: 10px;
+  width: 80%;
+  height: 600px;
+  background: linear-gradient(green, Chartreuse);
+  border: black;
+  border-style: solid;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* Hands */
+#dealer-hand {
+  background-color: limegreen;
+  height: 100px;
+  width: 1000px;
+}
+
+#player-hand {
+  background-color: limegreen;
+  height: 100px;
+  width: 1000px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#deal-button {
+  font-size: 16px;
+}
+#hit-button {
+  margin-left: 1em;
+  margin-right: 1em;
+  font-size: 16px;
+}
+#stand-button {
+  font-size: 16px;
+}
+/* Cards */
+img {
+  height: 80px;
+  width: 60px;
+  padding: 10px;
+}
