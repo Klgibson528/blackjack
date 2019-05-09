@@ -16,7 +16,7 @@ var values = [
   "queen",
   "king"
 ];
-var point = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+var point = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 var dealerCards = [];
 var playerCards = [];
 var dealerPoints = 0;
@@ -91,10 +91,10 @@ function deal() {
     playerDiv.append(playerCard);
     dealerDiv.append(dealerCard);
     playerCards.push(card1);
-    checkAce(playerCards)
+    checkAce(playerCards, playerPoints)
     playerPoints += card1.Points;
     dealerCards.push(card2);
-    checkAce(dealerCards)
+    checkAce(dealerCards, dealerPoints)
     dealerPoints += card2.Points;
     dealerPointsDiv.textContent = dealerPoints;
     playerPointsDiv.textContent = playerPoints;
@@ -114,6 +114,7 @@ function hit() {
     playerCard.setAttribute("src", card1.img);
     playerDiv.append(playerCard);
     playerCards.push(card1);
+    checkAce(playerCards, playerPoints)
     playerPoints += card1.Points;
     playerPointsDiv.textContent = playerPoints;
   }
