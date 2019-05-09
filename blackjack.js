@@ -91,13 +91,18 @@ function deal() {
     playerDiv.append(playerCard);
     dealerDiv.append(dealerCard);
     playerCards.push(card1);
+    checkAce(playerCards)
     playerPoints += card1.Points;
     dealerCards.push(card2);
+    checkAce(dealerCards)
     dealerPoints += card2.Points;
     dealerPointsDiv.textContent = dealerPoints;
     playerPointsDiv.textContent = playerPoints;
     i++;
   }
+  console.log(playerCards)
+
+
   checkScore(playerPoints, dealerPoints);
 }
 
@@ -137,6 +142,20 @@ function stand() {
   } else if (playerPoints == dealerPoints) {
     message.textContent = "It's a tie!";
   }
+}
+
+function checkAce(playerHand, playerPoints) {
+  playerHand.forEach(card => {
+    if (card.Value == 'ace') {
+      if (playerPoints + 11 > 21) {
+        card.Points = 1
+      }
+      else {
+        card.Points = 11
+      }
+    }
+  })
+  console.log(playerHand)
 }
 
 function checkScore(player, dealer) {
