@@ -8,7 +8,7 @@
 #table {
   padding: 10px;
   width: 80%;
-  height: 70%;
+  height: 80%;
   background: linear-gradient(green, Chartreuse);
   border: black;
   border-style: solid;
@@ -22,8 +22,9 @@
 /* Hands */
 .hand {
   background-color: limegreen;
-  height: 15vh;
+  height: 20vh;
   width: 60vw;
+  border-radius: 10px
 }
 
 
@@ -33,23 +34,18 @@
   justify-content: center;
 }
 
-#deal-button {
-  font-size: 16px;
-}
 #hit-button {
   margin-left: 1em;
   margin-right: 1em;
-  font-size: 16px;
 }
-#stand-button {
-  font-size: 16px;
-}
+
 /* Cards */
 img {
-  height: 85%;
+  height: 100%;
   padding: 1%;
 }
 
-label{
-  
+label {
+  color: white;
+  font-size: 2em
 }
