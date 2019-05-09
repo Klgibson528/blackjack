@@ -100,14 +100,13 @@ function deal() {
     playerPointsDiv.textContent = playerPoints;
     i++;
   }
-  console.log(playerCards)
+
 
 
   checkScore(playerPoints, dealerPoints);
 }
 
 function hit() {
-  console.log(playerCards);
   if (playerPoints < 21) {
     card1 = deck.pop();
     var playerCard = document.createElement("img");
@@ -121,9 +120,13 @@ function hit() {
   checkScore(playerPoints, dealerPoints);
 }
 
-function stand() {
+function disableButtons() {
   document.getElementById("hit-button").setAttribute("disabled", true);
   document.getElementById("stand-button").setAttribute("disabled", true);
+}
+
+function stand() {
+  disableButtons()
   while (dealerPoints < 17) {
     card1 = deck.pop();
     var dealerCard = document.createElement("img");
@@ -156,18 +159,21 @@ function checkAce(playerHand, playerPoints) {
       }
     }
   })
-  console.log(playerHand)
 }
 
 function checkScore(player, dealer) {
   if (player == 21) {
     message.textContent = "You Win!";
+    disableButtons()
   } else if (dealer == 21) {
     message.textContent = "Dealer Wins";
+    disableButtons()
   } else if (player > 21) {
     message.textContent = "You Busted";
+    disableButtons()
   } else if (dealer > 21) {
     message.textContent = "Dealer Busted";
+    disableButtons()
   } else {
     message.textContent = "Hit?";
   }
