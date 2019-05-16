@@ -69,6 +69,7 @@ function shuffleArray(array) {
   return array;
 }
 
+
 function deal() {
   removeCards(dealerDiv, playerDiv);
   getdeck();
@@ -85,19 +86,22 @@ function deal() {
     card1 = deck.pop();
     card2 = deck.pop();
     var playerCard = document.createElement("img");
-    var dealerCard = document.createElement("img");
     playerCard.setAttribute("src", card1.img);
-    dealerCard.setAttribute("src", card2.img);
     playerDiv.append(playerCard);
-    dealerDiv.append(dealerCard);
+    if (dealerCards.length < 1) {
+      var dealerCard = document.createElement("img");
+      dealerCard.setAttribute("src", card2.img);
+      dealerDiv.append(dealerCard);
+    }
+
     playerCards.push(card1);
     checkAce(playerCards, playerPoints)
     playerPoints += card1.Points;
     dealerCards.push(card2);
     checkAce(dealerCards, dealerPoints)
     dealerPoints += card2.Points;
-    dealerPointsDiv.textContent = dealerPoints;
     playerPointsDiv.textContent = playerPoints;
+    dealerPointsDiv.textContent = ""
     i++;
   }
 
@@ -127,6 +131,9 @@ function disableButtons() {
 
 function stand() {
   disableButtons()
+  var dealer2Card = document.createElement("img");
+  dealer2Card.setAttribute("src", dealerCards[1].img);
+  dealerDiv.append(dealer2Card);
   while (dealerPoints < 17) {
     card1 = deck.pop();
     var dealerCard = document.createElement("img");
@@ -137,6 +144,7 @@ function stand() {
     dealerPointsDiv.textContent = dealerPoints;
     playerPointsDiv.textContent = playerPoints;
   }
+
   if (dealerPoints > 21) {
     message.textContent = "Dealer Busted";
   } else if (playerPoints > dealerPoints && playerPoints <= 21) {
@@ -146,6 +154,8 @@ function stand() {
   } else if (playerPoints == dealerPoints) {
     message.textContent = "It's a tie!";
   }
+
+  dealerPointsDiv.textContent = dealerPoints;
 }
 
 function checkAce(playerHand, playerPoints) {
