@@ -46,7 +46,7 @@ var standButton = document
 function getdeck() {
   for (var s = 0; s < suits.length; s++) {
     for (var n = 0; n < values.length; n++) {
-      cardImg = "./img/" + values[n] + "_of_" + suits[s] + ".png";
+      cardImg = "img/" + values[n] + "_of_" + suits[s] + ".png";
       var card = {
         Value: values[n],
         Suit: suits[s],
