@@ -176,13 +176,13 @@ function checkScore(player, dealer) {
     message.textContent = "You Win!";
     disableButtons()
   } else if (dealer == 21) {
-    message.textContent = "Dealer Wins";
+    message.textContent = "Dealer Wins!";
     disableButtons()
   } else if (player > 21) {
-    message.textContent = "You Busted";
+    message.textContent = "You Busted, Dealer Wins!";
     disableButtons()
   } else if (dealer > 21) {
-    message.textContent = "Dealer Busted";
+    message.textContent = "Dealer Busted, You Win!";
     disableButtons()
   } else {
     message.textContent = "Hit?";
